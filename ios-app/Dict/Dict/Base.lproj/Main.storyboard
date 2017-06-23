@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>TimesNewRomanPSMT</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Speach Text View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Speach Text View Controller" customClass="SkStViewController" customModule="Dict" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tap Record" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="aoB-a1-T0e" userLabel="statusTextView">
+                                <rect key="frame" x="0.0" y="55" width="375" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="AJR-KX-8cw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" keyboardDismissMode="onDrag" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-FV-f0Y">
+                                <rect key="frame" x="8" y="83" width="359" height="532"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Lorem ipsum dolor ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQ7-rz-qEJ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Record" id="DhB-xB-FWN" userLabel="RecTogle">
+                                        <connections>
+                                            <action selector="toggleRecording:" destination="BYZ-38-t0r" id="uqV-kS-K83"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="16" style="plain" systemItem="fixedSpace" id="MqM-VB-rFq"/>
+                                    <barButtonItem title="Clear" id="S5E-Mk-mXj">
+                                        <connections>
+                                            <action selector="clearLastLine:" destination="BYZ-38-t0r" id="orc-bl-WqM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SkN-D4-gjn"/>
+                                    <barButtonItem title="Send" id="YK4-Bm-VJ9">
+                                        <connections>
+                                            <action selector="onSend:" destination="BYZ-38-t0r" id="5OJ-jT-noV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J.P.Morgan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G80-2Q-ott" userLabel="lang Label">
+                                <rect key="frame" x="8" y="22" width="359" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="3Af-sL-1HJ" userLabel="height = 28"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="26"/>
+                                <color key="textColor" red="0.27450980392156865" green="0.18823529411764706" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aoB-a1-T0e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5T2-Ow-2ai"/>
+                            <constraint firstItem="aoB-a1-T0e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Al-SH-RgB"/>
+                            <constraint firstAttribute="trailing" secondItem="aoB-a1-T0e" secondAttribute="trailing" id="AAX-Y9-Dga"/>
+                            <constraint firstItem="gwy-FV-f0Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="AzT-yD-HHZ"/>
+                            <constraint firstItem="G80-2Q-ott" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="N2N-oP-iUS"/>
+                            <constraint firstItem="gwy-FV-f0Y" firstAttribute="top" secondItem="aoB-a1-T0e" secondAttribute="bottom" constant="4" id="Sce-o4-Tvp"/>
+                            <constraint firstItem="pQ7-rz-qEJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VYN-Xm-4Kz"/>
+                            <constraint firstItem="pQ7-rz-qEJ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="W7j-Wr-6dp"/>
+                            <constraint firstAttribute="trailing" secondItem="gwy-FV-f0Y" secondAttribute="trailing" constant="8" id="Y1t-tA-jOD"/>
+                            <constraint firstItem="G80-2Q-ott" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="2" id="YT2-fJ-80V"/>
+                            <constraint firstAttribute="trailing" secondItem="G80-2Q-ott" secondAttribute="trailing" constant="8" id="kGt-BN-JDD"/>
+                            <constraint firstItem="pQ7-rz-qEJ" firstAttribute="top" secondItem="gwy-FV-f0Y" secondAttribute="bottom" constant="8" id="qX3-oA-6Nm"/>
+                            <constraint firstItem="gwy-FV-f0Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sCW-fZ-woF"/>
+                            <constraint firstItem="aoB-a1-T0e" firstAttribute="top" secondItem="G80-2Q-ott" secondAttribute="bottom" constant="4" id="smj-pC-Rah"/>
+                            <constraint firstAttribute="trailing" secondItem="pQ7-rz-qEJ" secondAttribute="trailing" id="uG5-Kh-fyf"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="clearButtonItem" destination="S5E-Mk-mXj" id="21F-ab-Z1E"/>
+                        <outlet property="memoTextView" destination="gwy-FV-f0Y" id="Agb-DR-5Nx"/>
+                        <outlet property="recTogButtonItem" destination="DhB-xB-FWN" id="7iz-3o-hub"/>
+                        <outlet property="sendButtonItem" destination="YK4-Bm-VJ9" id="RWH-B1-d7Q"/>
+                        <outlet property="statusTextView" destination="aoB-a1-T0e" id="UZE-M3-FRA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+</document>

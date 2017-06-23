@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %} 
+  <div class="container-fluid">
+    <div class="row">
+        <form action="" method="post" name="form">
+          {{ form.hidden_tag() }}
+          <div class="col-xs-2">
+            <div class="form-group">
+              {{ form.search(size="12",class="form-control") }}
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div class="form-group">
+              <input class="btn btn-primary" type="submit" value="Search">
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Notes</h4>
+        <ul class="nav nav-pills nav-stacked">
+          {% for record_id in records.keys() | sort(reverse = True) %}
+            <li {% if record_id == cur_record_id %}class="active" {% endif %}><a data-toggle="pill" href="#{{ record_id }}" onclick="set_current('{{records[record_id]['user']}}', {{record_id}});">{{ records[record_id]['title'] }}<br><small><em>{{ records[record_id]['time'] }}</em></small> <span class="label label-default">{{ records[record_id]['user'] }}</span>{% if records[record_id]['status'] == 'Done' %} <span class="label label-info">{{ records[record_id]['status'] }}</span>{% endif %}{% if records[record_id]['status'] == 'New' %} <span class="label label-success">{{ records[record_id]['status'] }}</span>{% endif %}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <div class="tab-content">
+          {% for record_id in records.keys() | sort(reverse = True) %}
+            <div id="{{ record_id }}" class="tab-pane fade {% if record_id == cur_record_id %} in active {% endif %}">
+              <input id="title_{{ record_id }}" class="form-control" style="width: 95%;" value="{{ records[record_id]['title'] }}">
+              <textarea id="text_{{ record_id }}" style="width: 95%; height: 400px;" class="form-control">{{ records[record_id]['text'] }}</textarea>
+            </div>
+          {% endfor %}
+        </div>
+        <div id="updatediv" class="container-fluid" style="display: none">
+            <form class="form-inline" action="" method="post" name="updateform">
+              {{ updateform.hidden_tag() }}
+              <div class="form-group">
+              {{ updateform.save(class="btn btn-success", onclick="updatetxt();") }} 
+              </div>
+              <div class="form-group">
+              {{ updateform.done(class="btn btn-info", onclick="updatetxt();") }}
+              </div>
+              <div class="form-group">
+              {{ updateform.delete(class="btn btn-danger")}}
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+
+function set_current(user,record_id) {
+    document.forms['updateform']['record_id'].value = record_id;
+    document.forms['updateform']['user'].value = user;
+    $("#updatediv").show();
+
+}
+function updatetxt() {
+    alert(document.forms['updateform']['record_id'].value);
+    var x = document.getElementById("text_" + document.forms['updateform']['record_id'].value).value ;
+    var y = document.getElementById("title_" + document.forms['updateform']['record_id'].value).value ;
+    document.forms['updateform']['textupdate'].value = x;
+    document.forms['updateform']['titleupdate'].value = y;
+}
+
+{% if cur_record_id %}
+$(document).ready(function(){
+  $("#updatediv").show();
+});
+{% endif %}
+</script>
+{% endblock %}
